@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Table } from "react-bootstrap";
 import axios from "axios";
 
 // Individual Member
@@ -66,11 +67,11 @@ export default class MemberList extends Component {
     return (
       <main id="list-component">
         <h2>Membres de l'équipage</h2>
-        <table className="member-list">
+        <Table className="member-list" responsive bordered variant="light">
           <tbody>
             <tr>{this.memberList()}</tr>
           </tbody>
-        </table>
+        </Table>
       </main>
     );
   }

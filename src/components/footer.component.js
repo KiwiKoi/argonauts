@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 
 // Automatically update copright year
 document.addEventListener("DOMContentLoaded", function () {
@@ -12,8 +12,8 @@ function Footer() {
     <div>
       <footer>
         <p>Réalisé par Jason en Anthestérion de l'an 515 avant JC</p>
-        <p class="copyright">
-          Copyright ©<span class="copyright-year"></span>.
+        <p className="copyright">
+          Copyright ©<span className="copyright-year"></span>.
         </p>
       </footer>
     </div>
