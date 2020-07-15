@@ -18,14 +18,16 @@ export default class CreateMember extends Component {
   }
 
   componentDidMount() {
-    axios.get("http://localhost:8080/members").then((response) => {
-      if (response.data.length > 0) {
-        this.setState({
-          members: response.data.map((member) => member.membername),
-          membername: response.data[0].membername,
-        });
-      }
-    });
+    axios
+      .get("https://argonauts-app.herokuapp.com/members")
+      .then((response) => {
+        if (response.data.length > 0) {
+          this.setState({
+            members: response.data.map((member) => member.membername),
+            membername: response.data[0].membername,
+          });
+        }
+      });
   }
 
   onChangeMemberName(e) {
@@ -43,7 +45,7 @@ export default class CreateMember extends Component {
     console.log(member);
 
     axios
-      .post("http://localhost:8080/members/add", member)
+      .post("https://argonauts-app.herokuapp.com/members/add", member)
       .then((res) => console.log(res.data));
 
     this.setState({

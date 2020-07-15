@@ -29,7 +29,7 @@ export default class MemberList extends Component {
 
   componentDidMount() {
     axios
-      .get("http://localhost:8080/members/")
+      .get("https://argonauts-app.herokuapp.com/members/")
       .then((response) => {
         this.setState({
           members: response.data,
@@ -43,7 +43,7 @@ export default class MemberList extends Component {
   // Delete member
   deleteMember(id) {
     axios
-      .delete("http://localhost:8080/members/" + id)
+      .delete("https://argonauts-app.herokuapp.com/members/" + id)
       .then((res) => console.log(res.data));
     this.setState({
       members: this.state.members.filter((el) => el._id !== id),
