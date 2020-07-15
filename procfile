@@ -1,2 +1,0 @@
-web: npm run build
-heroku config:set MONGODB_URI=mongodb+srv://dbAdmin:AdminPass@cluster0.8z4dm.mongodb.net/<dbname>?retryWrites=true&w=majority

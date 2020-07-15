@@ -1,5 +1,4 @@
 // require("dotenv").config();
-
 const express = require("express");
 const cors = require("cors");
 const path = require("path");
@@ -12,12 +11,12 @@ app.use(cors());
 app.use(express.json());
 
 // DB configuration
-// const uri = process.env.MONGO_URI;
+const uri = process.env.MONGO_URI;
 
 // connect to MongoDB
 mongoose
   .connect(
-    "mongodb+srv://dbAdmin:AdminPass@cluster0.8z4dm.mongodb.net/<dbname>?retryWrites=true&w=majority",
+    "process.env.mongodb+srv://dbAdmin:AdminPass@cluster0.8z4dm.mongodb.net/<dbname>?retryWrites=true&w=majority",
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
