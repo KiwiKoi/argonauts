@@ -3,26 +3,34 @@ const cors = require("cors");
 const path = require("path");
 const mongoose = require("mongoose");
 
-require("dotenv").config();
+// require("dotenv").config();
 
 const app = express();
-const port = process.env.PORT || 8080;
 
+// Middleware
 app.use(cors());
 app.use(express.json());
 
-mongoose.connect(process.env.MONGODB_URI, {
+// DB configuration
+
+const db = require("./config/keys").mongoURI;
+
+// connect to MongoDB
+mongoose.connect(db, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,
 });
 
+const port = process.env.PORT || 8080;
+
 const connection = mongoose.connection;
 
-connection.once("open", () => {
+connection.on("connected", () => {
   console.log("MongoDB database connection established successfully");
 });
 
+// use Members Route
 const membersRouter = require("./routes/members");
 app.use("/members", membersRouter);
 
