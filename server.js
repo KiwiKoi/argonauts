@@ -16,11 +16,14 @@ app.use(express.json());
 
 // connect to MongoDB
 mongoose
-  .connect(MONGO_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true,
-  })
+  .connect(
+    "mongodb+srv://dbAdmin:AdminPass@cluster0.8z4dm.mongodb.net/<dbname>?retryWrites=true&w=majority",
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      useCreateIndex: true,
+    }
+  )
   .then(() => console.log("MongoDB connection established successfully"))
   .catch((err) => console.log(err));
 
