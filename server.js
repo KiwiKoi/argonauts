@@ -3,7 +3,7 @@ const cors = require("cors");
 const path = require("path");
 const mongoose = require("mongoose");
 
-// require("dotenv").config();
+require("dotenv").config();
 
 const app = express();
 
@@ -13,7 +13,7 @@ app.use(express.json());
 
 // DB configuration
 
-const db = require("./config/keys").mongoURI;
+const db = process.env.MONGO_URI;
 
 // connect to MongoDB
 mongoose.connect(db, {
