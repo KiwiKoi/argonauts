@@ -13,17 +13,20 @@ app.use(express.json());
 
 // DB configuration
 
-const uri =
-  "mongodb+srv://dbAdmin:AdminPass@cluster0.8z4dm.mongodb.net/<dbname>?retryWrites=true&w=majority";
+// const uri =
+//   "mongodb+srv://dbAdmin:AdminPass@cluster0.8z4dm.mongodb.net/<dbname>?retryWrites=true&w=majority";
 // const uri = process.env.MONGO_URI;
 
 // connect to MongoDB
 mongoose
-  .connect(uri, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true,
-  })
+  .connect(
+    "mongodb+srv://dbAdmin:AdminPass@cluster0.8z4dm.mongodb.net/<dbname>?retryWrites=true&w=majority",
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      useCreateIndex: true,
+    }
+  )
   .then(() => console.log("MongoDB connection established successfully"))
   .catch((err) => console.log(err));
 
