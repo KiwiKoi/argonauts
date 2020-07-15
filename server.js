@@ -1,9 +1,9 @@
+require("dotenv").config();
+
 const express = require("express");
 const cors = require("cors");
 const path = require("path");
 const mongoose = require("mongoose");
-
-require("dotenv").config();
 
 const app = express();
 
@@ -13,22 +13,19 @@ app.use(express.json());
 
 // DB configuration
 
-const db = process.env.MONGO_URI;
+const uri = process.env.MONGO_URI;
 
 // connect to MongoDB
-mongoose.connect(db, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useCreateIndex: true,
-});
+mongoose
+  .connect(uri, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+  })
+  .then(() => console.log("MongoDB connection established successfully"))
+  .catch((err) => console.log(err));
 
 const port = process.env.PORT || 8080;
-
-const connection = mongoose.connection;
-
-connection.on("connected", () => {
-  console.log("MongoDB database connection established successfully");
-});
 
 // use Members Route
 const membersRouter = require("./routes/members");
