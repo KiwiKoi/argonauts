@@ -13,11 +13,11 @@ app.use(express.json());
 
 // DB configuration
 
-const uri = `process.env.${MONGO_URI}`;
+const uri = process.env.MONGO_URI;
 
 // connect to MongoDB
 mongoose
-  .connect(uri, {
+  .connect(`${uri}`, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
